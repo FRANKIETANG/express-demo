@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //  是一个路由控制器，用户如果访问“ / ”路径，则由 routes.index 来控制。
 app.use('/', index);
-app.use('/users', users);
+app.use('/user', users);
 
 // catch 404 and forward to error handler
 // 上面全部走完没有结果就 404
