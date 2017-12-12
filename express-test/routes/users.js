@@ -37,4 +37,11 @@ router.post('/:userId/subscription', (req, res, next) => { // 前面加一个冒
   }
 });
 
+router.get('/:userId/subscription/:subscriptionId', (req, res) => { // 前面加一个冒号就代表这个是作为一个参数处理
+  res.json({
+    userId: req.params.userId,
+    subscriptionId: req.params.subscriptionId,
+  });
+});
+
 module.exports = router;
