@@ -4,7 +4,10 @@ class User {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
+    User.id += 1;
+    this.id = User.id;
   }
+
   getName() {
     return `${this.firstName} ${this.lastName}`;
   }
@@ -14,8 +17,13 @@ class User {
     User.users.push(u);
     return u;
   }
+
   static getOneByName(firstName, lastName) {
     return User.users.find(el => el.firstName === firstName && el.lastName === lastName);
+  }
+
+  static getOneById(userId) {
+    return User.users.find(el => el.id === userId);
   }
 
   static list(query) {
@@ -27,6 +35,8 @@ class User {
     return users;
   }
 }
+
+User.id = 0;
 
 module.exports = User;
 

@@ -11,13 +11,20 @@ router.get('/', (req, res) => {
 
   const users = UserService.getAllUsers();
   res.locals.users = users;
-  res.render('user');
+  res.render('users');
 });
 
 router.post('/', (req, res) => {
   const { firstName, lastName, age } = req.body;
   const u = UserService.addNewUser(firstName, lastName, age);
   res.json(u);
+});
+
+router.get('/:userId', (req, res) => { // 前面加一个冒号就代表这个是作为一个参数处理
+  console.log(req.params.userId);
+  const user = UserService.getUserById(Number(req.params.userId));
+  res.locals.user = user;
+  res.render('user');
 });
 
 module.exports = router;

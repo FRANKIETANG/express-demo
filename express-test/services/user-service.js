@@ -7,4 +7,7 @@ module.exports = {
   addNewUser(firstName, lastName, age) {
     return User.insert(firstName, lastName, age);
   },
+  getUserById(userId) {
+    return User.getOneById(userId);
+  },
 };
